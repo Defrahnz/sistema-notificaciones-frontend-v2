@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,15 +29,14 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
