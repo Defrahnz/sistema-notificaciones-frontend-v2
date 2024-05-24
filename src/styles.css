@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.ng-valid:not(form).ng-touched{
+    border-left:5px solid #2187ab;
+    border-right: 5px solid #2187ab;
+}
+
+.ng-invalid:not(form).ng-touched{
+    border-left:5px solid #be4d25;
+    border-right:5px solid #be4d25;
+}
