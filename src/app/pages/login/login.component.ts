@@ -27,7 +27,17 @@ export class LoginComponent implements OnInit{
 
   login(){
     if(this.loginForm.valid){
-      this.loginService.login(this.loginForm.value as LoginRequest);
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next:(usuarioData)=>{
+          console.log(usuarioData)
+        },
+        error:(error)=>{
+          console.error(error)
+        },
+        complete:()=>{
+          console.log("Login correcto");
+        }
+      })
       this.toastr.success('Te has logeado correctamente','Éxito',{
         timeOut:1000,
       });
