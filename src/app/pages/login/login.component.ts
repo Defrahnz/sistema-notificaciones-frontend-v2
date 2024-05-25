@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/services/auth/login.service';
+import { LoginRequest } from 'src/app/services/auth/loginRequest';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit{
     email:['dvaldivia98@hotmail.com',[Validators.required,Validators.email]],
     password:['',Validators.required]
   })
-  constructor(private formBuilder:FormBuilder, private toastr:ToastrService, private router:Router){}
+  constructor(private formBuilder:FormBuilder, private toastr:ToastrService, private router:Router, private loginService:LoginService){}
   ngOnInit(): void{}
 
   get email(){
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit{
 
   login(){
     if(this.loginForm.valid){
-      console.log("Se ha llamado al servicio de Login") 
+      this.loginService.login(this.loginForm.value as LoginRequest);
       this.toastr.success('Te has logeado correctamente','Éxito',{
         timeOut:1000,
       });
