@@ -10,6 +10,7 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+  loginError:string='';
   loginForm=this.formBuilder.group({
     email:['dvaldivia98@hotmail.com',[Validators.required,Validators.email]],
     password:['',Validators.required]
@@ -33,16 +34,17 @@ export class LoginComponent implements OnInit{
         },
         error:(error)=>{
           console.error(error)
+          this.loginError=error;
         },
         complete:()=>{
           console.log("Login correcto");
+          this.toastr.success('Te has logeado correctamente','Éxito',{
+            timeOut:1000,
+          });
+          this.router.navigateByUrl('/inicio');
+          this.loginForm.reset();
         }
       })
-      this.toastr.success('Te has logeado correctamente','Éxito',{
-        timeOut:1000,
-      });
-      this.router.navigateByUrl('/inicio');
-      this.loginForm.reset();
     }else{
       this.toastr.error( 'Ha habido un error al ingresar los datos','Error',{
         timeOut:1000,
