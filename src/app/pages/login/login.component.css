@@ -1,0 +1,18 @@
+/* login.component.css */
+.background-wrapper {
+  background-color: #2c3e50; /* Color más oscuro */
+  min-height: 90vh; /* Asegura que cubre toda la altura de la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Espacio alrededor del card */
+}
+
+.booststrap-wrapper {
+  width: 100%;
+}
+
+mat-card {
+  padding: 15px; /* Espacio interno del card */
+  background: #fff; /* Fondo del card blanco */
+}
