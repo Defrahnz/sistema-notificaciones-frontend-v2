@@ -22,6 +22,8 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { UsuarioPersonalDetailsComponent } from './components/usuario-personal-details/usuario-personal-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    UsuarioComponent,
+    UsuarioPersonalDetailsComponent
   ],
   imports: [
     BrowserModule,
