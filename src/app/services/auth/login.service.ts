@@ -9,7 +9,7 @@ import { Usuario } from './usuario';
 })
 export class LoginService {
   currentUsuarioLoginOn:BehaviorSubject<boolean>=new BehaviorSubject<boolean>(false);
-  currentUsuarioData: BehaviorSubject<Usuario>=new BehaviorSubject<Usuario>({id:0,email:''});
+  currentUsuarioData: BehaviorSubject<Usuario>=new BehaviorSubject<Usuario>({id:0,username:''});
 
   constructor(private http:HttpClient) { }
 
