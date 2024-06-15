@@ -1,0 +1,19 @@
+.boton-modulo:hover {
+  color: azure;
+  background-color: #3f51b5;
+  cursor: pointer;
+}
+
+.home-container {
+  padding-top: 100px; /* Ajusta el valor según la altura de tu navbar */
+}
+
+@media (min-height: 768px) {
+  .home-container {
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 100px); /* Ajusta el valor según la altura de tu navbar */
+      padding-top: 100px; /* Asegura que el contenido no esté pegado a la navbar */
+  }
+}
