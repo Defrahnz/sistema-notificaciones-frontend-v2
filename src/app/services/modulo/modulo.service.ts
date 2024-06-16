@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environment/environment';
+import { Modulo } from './modulo';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class ModuloService {
 
   constructor(private http:HttpClient) { }
 
-  obtenerModulosActivos():Observable<any>{
-    return this.http.get<any>(environment.urlApi+"modulo/activos").pipe(
+  obtenerModulosActivos():Observable<Modulo>{
+    return this.http.get<Modulo>(environment.urlApi+"modulo/activos").pipe(
       catchError(this.handleError)
     );
   }
