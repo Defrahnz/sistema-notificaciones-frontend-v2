@@ -5,8 +5,9 @@
         <div *ngFor="let modulo of modulos" class="col-6 col-md-4 col-lg-3 text-center mb-4">
           <div class="card h-100 boton-modulo">
             <div class="card-body">
-              <img [src]="'../../../assets/icons/' + modulo.urlImagen" alt="{{ modulo.nombre }} Icono" class="img-fluid mb-2" style="height: 30px; width: 30px;">
-              <p class="card-text">{{ modulo.nombre }}</p>
+              <img [src]="'../../../assets/icons/' + modulo.urlImagen" alt="{{ modulo.nombreModulo }} Icono" class="img-fluid mb-2" style="height: 30px; width: 30px;">
+              <p class="card-text">{{ modulo.nombreModulo }}</p>
+              <a [routerLink]="modulo.route" class="stretched-link"></a>
             </div>
           </div>
         </div>
