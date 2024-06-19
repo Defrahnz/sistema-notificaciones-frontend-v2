@@ -12,7 +12,7 @@
                 <p class="text-danger">{{loginError}}</p>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Correo</label>
-                  <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1">
+                  <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1">
                   <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
                     <div *ngIf="email.errors?.['required']">El correo es requerido.</div>
                     <div *ngIf="email.errors?.['email']">El correo ingresado no tiene el formato adecuado.</div>
