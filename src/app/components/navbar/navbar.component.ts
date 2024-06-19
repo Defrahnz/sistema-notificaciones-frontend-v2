@@ -18,10 +18,5 @@ export class NavbarComponent implements OnInit {
         this.userLoginOn=usuarioLoginOn;
       }
     });
-    this.loginService.currentUsuarioData.subscribe({
-      next:(usuarioData)=>{
-        this.usuarioData=usuarioData;
-      }
-    })
   }
 }
