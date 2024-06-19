@@ -12,14 +12,14 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
 export class LoginComponent implements OnInit{
   loginError:string='';
   loginForm=this.formBuilder.group({
-    email:['dvaldivia98@hotmail.com',[Validators.required,Validators.email]],
+    username:['',[Validators.required,Validators.email]],
     password:['',Validators.required]
   })
   constructor(private formBuilder:FormBuilder, private toastr:ToastrService, private router:Router, private loginService:LoginService){}
   ngOnInit(): void{}
 
   get email(){
-    return this.loginForm.controls.email;
+    return this.loginForm.controls.username;
   }
 
   get password(){
