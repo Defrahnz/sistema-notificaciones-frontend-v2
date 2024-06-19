@@ -27,12 +27,6 @@ export class HomeComponent implements OnInit{
         this.userLoginOn=usuarioLoginOn;
       }
     });
-
-    this.loginService.currentUsuarioData.subscribe({
-      next:(usuarioData)=>{
-        this.usuarioData=usuarioData;
-      }
-    })
   }
   
 
