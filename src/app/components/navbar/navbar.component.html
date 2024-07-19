@@ -11,7 +11,7 @@
         Bienvenido {{usuarioData?.nombre}} {{usuarioData?.apellidop}}
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Cerrar Sesión</button>
+        <button mat-menu-item (click)="logout()">Cerrar Sesión</button>
       </mat-menu>
     </ng-container>
   </div>
