@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit{
     if(this.loginForm.valid){
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next:(usuarioData)=>{
-          console.log(usuarioData)
         },
         error:(error)=>{
           console.error(error)
