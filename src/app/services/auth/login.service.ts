@@ -50,4 +50,8 @@ export class LoginService {
   get usuarioLoginOn():Observable<boolean>{
     return this.currentUsuarioLoginOn.asObservable();
   }
+
+  get usuarioToken():String{
+    return this.currentUsuarioData.value;
+  }
 }
