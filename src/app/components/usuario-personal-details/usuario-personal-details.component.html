@@ -1,5 +1,5 @@
 <p *ngIf="errorMessage.length!=0" class="text-danger">{{errorMessage}}</p>
-<div>
+<div *ngIf="(usuarioLoginOn && !editMode) || !usuarioLoginOn">
     <p><b>Nombre:</b> {{usuario?.nombre}} </p>
     <p><b>Apellido Paterno:</b> {{usuario?.apellidop}} </p>
     <p><b>Apellido Materno:</b> {{usuario?.apellidom}}</p>
@@ -11,4 +11,119 @@
     <p><b>Código Postal:</b> {{usuario?.codigopostal}}</p>
     <p><b>Número de teléfono:</b> {{usuario?.telefonocasa}}</p>
     <p><b>Número de Celular:</b> {{usuario?.telefonomovil}}</p>
+    <button *ngIf="usuarioLoginOn && !editMode" (click)="editMode=true" mat-raised-button color="primary">Editar Datos</button>
 </div>
+
+<form *ngIf="usuarioLoginOn && editMode" [formGroup]="editarForm">
+    <div class="form-group row">
+        <label for="inputNombre" class="col-sm-1 col-form-label">Nombre</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="nombre" class="form-control" id="inputNombre">
+
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+                    <div *ngIf="nombre.errors?.['required']">
+                        El campo nombre es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputApellidoP" class="col-sm-1 col-form-label">Apellido Paterno</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="apellidop" class="form-control" id="inputApellidoP">
+
+                <div *ngIf="apellidop.invalid && (apellidop.dirty || apellidop.touched)" class="text-danger">
+                    <div *ngIf="apellidop.errors?.['required']">
+                        El campo apellido paterno es requerido.
+                    </div>
+                </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputApellidoM" class="col-sm-1 col-form-label">Apellido Materno</label>
+            <div class="col-sm-11">
+                <input type="text" formControlName="apellidom" class="form-control" id="inputApellidoM">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCalle" class="col-sm-1 col-form-label">Calle</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="calle" class="form-control" id="inputNombre">
+
+                <div *ngIf="calle.invalid && (calle.dirty || calle.touched)" class="text-danger">
+                    <div *ngIf="calle.errors?.['required']">
+                        El campo calle es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputNumInterior" class="col-sm-1 col-form-label">N° Interior</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="numinterior" class="form-control" id="inputNumInterior">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputNumExterior" class="col-sm-1 col-form-label">N° Exterior</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="numexterior" class="form-control" id="inputNumExterior">
+
+                <div *ngIf="numexterior.invalid && (numexterior.dirty || numexterior.touched)" class="text-danger">
+                    <div *ngIf="numexterior.errors?.['required']">
+                        El campo de numero exterior es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputColonia" class="col-sm-1 col-form-label">Colonia</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="colonia" class="form-control" id="inputColonia">
+
+                <div *ngIf="colonia.invalid && (colonia.dirty || colonia.touched)" class="text-danger">
+                    <div *ngIf="colonia.errors?.['required']">
+                        El campo Colonia es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCodigoPostal" class="col-sm-1 col-form-label">Código Postal</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="codigopostal" class="form-control" id="inputCodigoPostal">
+
+                <div *ngIf="codigopostal.invalid && (codigopostal.dirty || codigopostal.touched)" class="text-danger">
+                    <div *ngIf="codigopostal.errors?.['required']">
+                        El campo Código Postal es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputTelefonoCasa" class="col-sm-1 col-form-label">Teléfono de Casa</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="telefonocasa" class="form-control" id="inputTelefonoCasa">
+
+                <div *ngIf="telefonocasa.invalid && (telefonocasa.dirty || telefonocasa.touched)" class="text-danger">
+                    <div *ngIf="telefonocasa.errors?.['required']">
+                        El campo Telefono de Casa es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputTelefonoMovil" class="col-sm-1 col-form-label">Teléfono Móvil</label>
+        <div class="col-sm-11">
+            <input type="text" formControlName="telefonomovil" class="form-control" id="inputTelefonoMovil">
+
+                <div *ngIf="telefonomovil.invalid && (telefonomovil.dirty || telefonomovil.touched)" class="text-danger">
+                    <div *ngIf="telefonomovil.errors?.['required']">
+                        El campo Telefono Móvil es requerido.
+                    </div>
+                </div>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="savePersonalDetailsData()">Guardar</button>
+    <button mat-raised-button color="warn" (click)="editMode=false">Cancelar</button>
+</form>
