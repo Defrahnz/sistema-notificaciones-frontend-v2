@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -24,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { UsuarioPersonalDetailsComponent } from './components/usuario-personal-details/usuario-personal-details.component';
+import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
+import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,10 @@ import { UsuarioPersonalDetailsComponent } from './components/usuario-personal-d
     MatIconModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:JwtInterceptorService,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptorService,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
